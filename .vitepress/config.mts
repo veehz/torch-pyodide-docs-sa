@@ -32,6 +32,10 @@ export default defineConfig({
     logo: "/logo.svg",
     siteTitle: "torch",
 
+    outline: {
+      level: [2, 3],
+    },
+
     nav: [
       { text: "Guide", link: "/guide/getting-started" },
       { text: "API Reference", link: "/api/tensor" },

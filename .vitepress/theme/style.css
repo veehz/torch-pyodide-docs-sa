@@ -1,0 +1,10 @@
+/* Hide nested outline items by default */
+.VPDocOutlineItem.nested {
+  display: none;
+}
+
+/* Show nested items when sibling is active, or when a child is active */
+.outline-link.active ~ .VPDocOutlineItem.nested,
+.VPDocOutlineItem.nested:has(.active) {
+  display: block;
+}

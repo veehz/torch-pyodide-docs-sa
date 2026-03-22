@@ -2,7 +2,7 @@
   <a 
     :href="`https://docs.pytorch.org/docs/2.10/generated/${name}.html`" 
     target="_blank" 
-    class="ghost-button"
+    class="ghost-button ignore-header"
   >
     <span class="provider">PyTorch</span>
     <span class="icon">↗</span>
