@@ -850,10 +850,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@veehz/torch@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@veehz/torch@npm:0.1.2"
-  checksum: 10c0/09e531a2ca7db3b3bd6e38a0ffde9667b90975f506093a817f05b4c92145c32a944cb8c3052fdbbcdc0a18bc4f48410693be6a0f569fceb54fa7ba348ca1fbe7
+"@veehz/torch@https://pkg.pr.new/veehz/torch@0d1ea2d":
+  version: 0.1.0
+  resolution: "@veehz/torch@https://pkg.pr.new/veehz/torch@0d1ea2d"
+  checksum: 10c0/64182bcea9782bf9457c6fb5dd0d0c564795aaee24f4d515ec156057d8c2fb8ef3c97b089c687458672103586eb21667ff3ec27b2cf438ce6772218ae643b9ad
   languageName: node
   linkType: hard
 
@@ -2516,7 +2516,7 @@ __metadata:
   resolution: "torch-pyodide-docs@workspace:."
   dependencies:
     "@types/node": "npm:^25.5.0"
-    "@veehz/torch": "npm:^0.1.2"
+    "@veehz/torch": "https://pkg.pr.new/veehz/torch@0d1ea2d"
     glob: "npm:^11.0.0"
     markdown-it-mathjax3: "npm:^4"
     pyodide: "npm:^0.26.0"

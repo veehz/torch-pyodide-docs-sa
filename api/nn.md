@@ -20,11 +20,11 @@ class MyModel(nn.Module):
 
 **Key Methods**
 
-| Method                                           | Description                                   |
-| ------------------------------------------------ | --------------------------------------------- |
-| [`forward(x)`](<(torch.nn.Module.forward)>)      | Define the computation. Called by `model(x)`. |
-| [`parameters()`](<(torch.nn.Module.parameters)>) | Returns a list of all learnable parameters.   |
-| [`zero_grad()`](<(torch.nn.Module.zero_grad)>)   | Zeros gradients of all parameters.            |
+| Method                                         | Description                                   |
+| ---------------------------------------------- | --------------------------------------------- |
+| [`forward(x)`]({torch.nn.Module.forward})      | Define the computation. Called by `model(x)`. |
+| [`parameters()`]({torch.nn.Module.parameters}) | Returns a list of all learnable parameters.   |
+| [`zero_grad()`]({torch.nn.Module.zero_grad})   | Zeros gradients of all parameters.            |
 
 ---
 

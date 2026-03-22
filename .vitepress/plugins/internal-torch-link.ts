@@ -1,7 +1,7 @@
 import type MarkdownIt from 'markdown-it'
 
 /**
- * Converts [`shape`]((torch.Tensor.shape)) or []((torch.Tensor.shape)) to internal links
+ * Converts [`shape`]({torch.Tensor.shape}) or []({torch.Tensor.shape}) to internal links
  */
 export const internalTorchLinkPlugin = (md: MarkdownIt) => {
   md.core.ruler.before('inline', 'internal-torch-links', (state) => {
@@ -10,8 +10,8 @@ export const internalTorchLinkPlugin = (md: MarkdownIt) => {
 
       // Regex matches [optional_alias]((target))
       // Group 1: Everything inside [] (can be empty)
-      // Group 2: The target inside (())
-      const regex = /\[([^\]]*)\]\(\(([\w\.\-\/]+)\)\)/g;
+      // Group 2: The target inside ({})
+      const regex = /\[([^\]]*)\]\(\{([\w\.\-\/]+)\}\)/g;
       
       token.content = token.content.replace(regex, (match, alias, target) => {
         const anchor = target.toLowerCase().replace(/\./g, '-');

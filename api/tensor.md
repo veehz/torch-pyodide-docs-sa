@@ -23,13 +23,13 @@ torch.randn(2, 3)
 
 ## Tensor Attributes
 
-| Attribute                                         | Description                                                                                                                   |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| [`shape`](<(torch.Tensor.shape)>)                 | Returns the shape of the tensor.                                                                                              |
-| [`data`](<(torch.Tensor.data)>)                   | Returns a detached view of the tensor data (no gradient).                                                                     |
-| [`requires_grad`](<(torch.Tensor.requires_grad)>) | Is `True` if gradients need to be computed for this Tensor.                                                                   |
-| [`grad`](<(torch.Tensor.grad)>)                   | This attribute is `None` by default and becomes a Tensor the first time a call to `backward()` computes gradients for `self`. |
-| [`T`](<(torch.Tensor.T)>)                         | Returns a view of this tensor with its dimensions reversed.                                                                   |
+| Attribute                                       | Description                                                                                                                   |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [`shape`]({torch.Tensor.shape})                 | Returns the shape of the tensor.                                                                                              |
+| [`data`]({torch.Tensor.data})                   | Returns a detached view of the tensor data (no gradient).                                                                     |
+| [`requires_grad`]({torch.Tensor.requires_grad}) | Is `True` if gradients need to be computed for this Tensor.                                                                   |
+| [`grad`]({torch.Tensor.grad})                   | This attribute is `None` by default and becomes a Tensor the first time a call to `backward()` computes gradients for `self`. |
+| [`T`]({torch.Tensor.T})                         | Returns a view of this tensor with its dimensions reversed.                                                                   |
 
 ## Tensor Methods
 
@@ -55,52 +55,52 @@ x
 x.item()
 ```
 
-| Method                                                         | Description                                                                                        |
-| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [`tolist()`](<(torch.Tensor.tolist)>)                          | Return tensor data as a (nested) Python list, or a Python scalar for 0-d tensors.                  |
-| [`item()`](<(torch.Tensor.item)>)                              | Returns the value of this tensor as a standard Python number.                                      |
-| [`size(dim=None)`](<(torch.Tensor.size)>)                      | Returns the size of the `self` tensor.                                                             |
-| [`dim()`](<(torch.Tensor.dim)>)                                | Returns the number of dimensions of `self` tensor.                                                 |
-| [`numel()`](<(torch.Tensor.numel)>)                            | Returns the total number of elements in the `self` tensor.                                         |
-| [`backward(gradient=None)`](<(torch.Tensor.backward)>)         | Computes the gradient of current tensor w.r.t. graph leaves.                                       |
-| [`detach()`](<(torch.Tensor.detach)>)                          | Returns a new Tensor, detached from the current graph.                                             |
-| [`zero_()`](<(torch.Tensor.zero_)>)                            | Fills `self` tensor with zeros.                                                                    |
-| [`retain_grad()`](<(torch.Tensor.retain_grad)>)                | Enables .grad attribute for non-leaf Tensors.                                                      |
-| [`reshape(*args)`](<(torch.Tensor.reshape)>)                   | Returns a tensor with the same data and number of elements as `self` but with the specified shape. |
-| [`view(*args)`](<(torch.Tensor.view)>)                         | Returns a new tensor with the same data as the `self` tensor but of a different shape.             |
-| [`squeeze(dim=None)`](<(torch.Tensor.squeeze)>)                | Returns a tensor with all specified dimensions of input of size 1 removed.                         |
-| [`unsqueeze(dim)`](<(torch.Tensor.unsqueeze)>)                 | Returns a new tensor with a dimension of size one inserted at the specified position.              |
-| [`expand(*args)`](<(torch.Tensor.expand)>)                     | Returns a new view of the `self` tensor with singleton dimensions expanded to a larger size.       |
-| [`transpose(dim0, dim1)`](<(torch.Tensor.transpose)>)          | Returns a tensor that is a transposed version of `self`.                                           |
-| [`flatten(start_dim=0, end_dim=-1)`](<(torch.Tensor.flatten)>) | Flattens `self` tensor by reshaping it into a one-dimensional tensor.                              |
+| Method                                                       | Description                                                                                        |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| [`tolist()`]({torch.Tensor.tolist})                          | Return tensor data as a (nested) Python list, or a Python scalar for 0-d tensors.                  |
+| [`item()`]({torch.Tensor.item})                              | Returns the value of this tensor as a standard Python number.                                      |
+| [`size(dim=None)`]({torch.Tensor.size})                      | Returns the size of the `self` tensor.                                                             |
+| [`dim()`]({torch.Tensor.dim})                                | Returns the number of dimensions of `self` tensor.                                                 |
+| [`numel()`]({torch.Tensor.numel})                            | Returns the total number of elements in the `self` tensor.                                         |
+| [`backward(gradient=None)`]({torch.Tensor.backward})         | Computes the gradient of current tensor w.r.t. graph leaves.                                       |
+| [`detach()`]({torch.Tensor.detach})                          | Returns a new Tensor, detached from the current graph.                                             |
+| [`zero_()`]({torch.Tensor.zero_})                            | Fills `self` tensor with zeros.                                                                    |
+| [`retain_grad()`]({torch.Tensor.retain_grad})                | Enables .grad attribute for non-leaf Tensors.                                                      |
+| [`reshape(*args)`]({torch.Tensor.reshape})                   | Returns a tensor with the same data and number of elements as `self` but with the specified shape. |
+| [`view(*args)`]({torch.Tensor.view})                         | Returns a new tensor with the same data as the `self` tensor but of a different shape.             |
+| [`squeeze(dim=None)`]({torch.Tensor.squeeze})                | Returns a tensor with all specified dimensions of input of size 1 removed.                         |
+| [`unsqueeze(dim)`]({torch.Tensor.unsqueeze})                 | Returns a new tensor with a dimension of size one inserted at the specified position.              |
+| [`expand(*args)`]({torch.Tensor.expand})                     | Returns a new view of the `self` tensor with singleton dimensions expanded to a larger size.       |
+| [`transpose(dim0, dim1)`]({torch.Tensor.transpose})          | Returns a tensor that is a transposed version of `self`.                                           |
+| [`flatten(start_dim=0, end_dim=-1)`]({torch.Tensor.flatten}) | Flattens `self` tensor by reshaping it into a one-dimensional tensor.                              |
 
 ### Reductions
 
-| Method                                                   | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- |
-| [`sum(dim=None, keepdim=False)`](<(torch.Tensor.sum)>)   | Returns the sum of all elements in the tensor.           |
-| [`mean(dim=None, keepdim=False)`](<(torch.Tensor.mean)>) | Returns the mean value of all elements in the tensor.    |
-| [`max(dim=None, keepdim=False)`](<(torch.Tensor.max)>)   | Returns the maximum value of all elements in the tensor. |
-| [`min(dim=None, keepdim=False)`](<(torch.Tensor.min)>)   | Returns the minimum value of all elements in the tensor. |
+| Method                                                 | Description                                              |
+| ------------------------------------------------------ | -------------------------------------------------------- |
+| [`sum(dim=None, keepdim=False)`]({torch.Tensor.sum})   | Returns the sum of all elements in the tensor.           |
+| [`mean(dim=None, keepdim=False)`]({torch.Tensor.mean}) | Returns the mean value of all elements in the tensor.    |
+| [`max(dim=None, keepdim=False)`]({torch.Tensor.max})   | Returns the maximum value of all elements in the tensor. |
+| [`min(dim=None, keepdim=False)`]({torch.Tensor.min})   | Returns the minimum value of all elements in the tensor. |
 
 ### Math Operations
 
 Many math operations are exposed directly as tensor methods:
-[`add(other)`](<(torch.Tensor.add)>), [`sub(other)`](<(torch.Tensor.sub)>), [`mul(other)`](<(torch.Tensor.mul)>), [`div(other)`](<(torch.Tensor.div)>), [`pow(other)`](<(torch.Tensor.pow)>), [`matmul(other)`](<(torch.Tensor.matmul)>), [`neg()`](<(torch.Tensor.neg)>), [`abs()`](<(torch.Tensor.abs)>), [`log()`](<(torch.Tensor.log)>), [`exp()`](<(torch.Tensor.exp)>), [`sqrt()`](<(torch.Tensor.sqrt)>), [`square()`](<(torch.Tensor.square)>), [`sin()`](<(torch.Tensor.sin)>), [`cos()`](<(torch.Tensor.cos)>), [`tan()`](<(torch.Tensor.tan)>), [`sigmoid()`](<(torch.Tensor.sigmoid)>), [`relu()`](<(torch.Tensor.relu)>), [`sign()`](<(torch.Tensor.sign)>), [`reciprocal()`](<(torch.Tensor.reciprocal)>), [`nan_to_num()`](<(torch.Tensor.nan.to.num)>).
+[`add(other)`]({torch.Tensor.add}), [`sub(other)`]({torch.Tensor.sub}), [`mul(other)`]({torch.Tensor.mul}), [`div(other)`]({torch.Tensor.div}), [`pow(other)`]({torch.Tensor.pow}), [`matmul(other)`]({torch.Tensor.matmul}), [`neg()`]({torch.Tensor.neg}), [`abs()`]({torch.Tensor.abs}), [`log()`]({torch.Tensor.log}), [`exp()`]({torch.Tensor.exp}), [`sqrt()`]({torch.Tensor.sqrt}), [`square()`]({torch.Tensor.square}), [`sin()`]({torch.Tensor.sin}), [`cos()`]({torch.Tensor.cos}), [`tan()`]({torch.Tensor.tan}), [`sigmoid()`]({torch.Tensor.sigmoid}), [`relu()`]({torch.Tensor.relu}), [`sign()`]({torch.Tensor.sign}), [`reciprocal()`]({torch.Tensor.reciprocal}), [`nan_to_num()`]({torch.Tensor.nan_to_num}).
 
 Additionally, the Python `__add__`, `__sub__`, `__mul__`, `__truediv__`, `__pow__`, and `__matmul__` magic methods are implemented to match standard math operators (+, -, \*, /, \*\*, @).
 
 ### Comparison Operations
 
-| Method                                                                                | Description                                                       |
-| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [`lt(other)`](<(torch.Tensor.lt)>)                                                    | Computes `self < other` element-wise.                             |
-| [`gt(other)`](<(torch.Tensor.gt)>)                                                    | Computes `self > other` element-wise.                             |
-| [`le(other)`](<(torch.Tensor.le)>)                                                    | Computes `self <= other` element-wise.                            |
-| [`ge(other)`](<(torch.Tensor.ge)>)                                                    | Computes `self >= other` element-wise.                            |
-| [`eq(other)`](<(torch.Tensor.eq)>)                                                    | Computes `self == other` element-wise.                            |
-| [`ne(other)`](<(torch.Tensor.ne)>)                                                    | Computes `self != other` element-wise.                            |
-| [`allclose(other, rtol=1e-5, atol=1e-8, equal_nan=False)`](<(torch.Tensor.allclose)>) | This function checks if `self` and `other` satisfy the condition. |
+| Method                                                                              | Description                                                       |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [`lt(other)`]({torch.Tensor.lt})                                                    | Computes `self < other` element-wise.                             |
+| [`gt(other)`]({torch.Tensor.gt})                                                    | Computes `self > other` element-wise.                             |
+| [`le(other)`]({torch.Tensor.le})                                                    | Computes `self <= other` element-wise.                            |
+| [`ge(other)`]({torch.Tensor.ge})                                                    | Computes `self >= other` element-wise.                            |
+| [`eq(other)`]({torch.Tensor.eq})                                                    | Computes `self == other` element-wise.                            |
+| [`ne(other)`]({torch.Tensor.ne})                                                    | Computes `self != other` element-wise.                            |
+| [`allclose(other, rtol=1e-5, atol=1e-8, equal_nan=False)`]({torch.Tensor.allclose}) | This function checks if `self` and `other` satisfy the condition. |
 
 ---
 
@@ -289,7 +289,7 @@ y.grad
 Tensor.reshape(*args) -> Tensor
 ```
 
-See [](<(torch.reshape)>).
+See []({torch.reshape}).
 
 ### [[torch.Tensor.view]]
 
@@ -310,7 +310,7 @@ x.view(2, 2)
 Tensor.squeeze(dim=None) -> Tensor
 ```
 
-See [](<(torch.squeeze)>).
+See []({torch.squeeze}).
 
 ### [[torch.Tensor.unsqueeze]]
 
@@ -318,7 +318,7 @@ See [](<(torch.squeeze)>).
 Tensor.unsqueeze(dim) -> Tensor
 ```
 
-See [](<(torch.unsqueeze)>).
+See []({torch.unsqueeze}).
 
 ### [[torch.Tensor.expand]]
 
@@ -339,7 +339,7 @@ x.expand(3)
 Tensor.transpose(dim0, dim1) -> Tensor
 ```
 
-See [](<(torch.transpose)>).
+See []({torch.transpose}).
 
 ### [[torch.Tensor.flatten]]
 
@@ -347,7 +347,7 @@ See [](<(torch.transpose)>).
 Tensor.flatten(start_dim=0, end_dim=-1) -> Tensor
 ```
 
-See [](<(torch.flatten)>).
+See []({torch.flatten}).
 
 ### [[torch.Tensor.sum]]
 
@@ -355,7 +355,7 @@ See [](<(torch.flatten)>).
 Tensor.sum(dim=None, keepdim=False) -> Tensor
 ```
 
-See [](<(torch.sum)>).
+See []({torch.sum}).
 
 ### [[torch.Tensor.mean]]
 
@@ -363,7 +363,7 @@ See [](<(torch.sum)>).
 Tensor.mean(dim=None, keepdim=False) -> Tensor
 ```
 
-See [](<(torch.mean)>).
+See []({torch.mean}).
 
 ### [[torch.Tensor.max]]
 
@@ -371,7 +371,7 @@ See [](<(torch.mean)>).
 Tensor.max(dim=None, keepdim=False) -> Tensor
 ```
 
-See [](<(torch.max)>).
+See []({torch.max}).
 
 ### [[torch.Tensor.min]]
 
@@ -379,7 +379,7 @@ See [](<(torch.max)>).
 Tensor.min(dim=None, keepdim=False) -> Tensor
 ```
 
-See [](<(torch.min)>).
+See []({torch.min}).
 
 ### [[torch.Tensor.add]]
 
@@ -387,7 +387,7 @@ See [](<(torch.min)>).
 Tensor.add(other) -> Tensor
 ```
 
-See [](<(torch.add)>).
+See []({torch.add}).
 
 ### [[torch.Tensor.sub]]
 
@@ -395,7 +395,7 @@ See [](<(torch.add)>).
 Tensor.sub(other) -> Tensor
 ```
 
-See [](<(torch.sub)>).
+See []({torch.sub}).
 
 ### [[torch.Tensor.mul]]
 
@@ -403,7 +403,7 @@ See [](<(torch.sub)>).
 Tensor.mul(other) -> Tensor
 ```
 
-See [](<(torch.mul)>).
+See []({torch.mul}).
 
 ### [[torch.Tensor.div]]
 
@@ -411,7 +411,7 @@ See [](<(torch.mul)>).
 Tensor.div(other) -> Tensor
 ```
 
-See [](<(torch.div)>).
+See []({torch.div}).
 
 ### [[torch.Tensor.pow]]
 
@@ -419,7 +419,7 @@ See [](<(torch.div)>).
 Tensor.pow(other) -> Tensor
 ```
 
-See [](<(torch.pow)>).
+See []({torch.pow}).
 
 ### [[torch.Tensor.matmul]]
 
@@ -427,7 +427,7 @@ See [](<(torch.pow)>).
 Tensor.matmul(other) -> Tensor
 ```
 
-See [](<(torch.matmul)>).
+See []({torch.matmul}).
 
 ### [[torch.Tensor.neg]]
 
@@ -435,7 +435,7 @@ See [](<(torch.matmul)>).
 Tensor.neg() -> Tensor
 ```
 
-See [](<(torch.neg)>).
+See []({torch.neg}).
 
 ### [[torch.Tensor.abs]]
 
@@ -443,7 +443,7 @@ See [](<(torch.neg)>).
 Tensor.abs() -> Tensor
 ```
 
-See [](<(torch.abs)>).
+See []({torch.abs}).
 
 ### [[torch.Tensor.log]]
 
@@ -451,7 +451,7 @@ See [](<(torch.abs)>).
 Tensor.log() -> Tensor
 ```
 
-See [](<(torch.log)>).
+See []({torch.log}).
 
 ### [[torch.Tensor.exp]]
 
@@ -459,7 +459,7 @@ See [](<(torch.log)>).
 Tensor.exp() -> Tensor
 ```
 
-See [](<(torch.exp)>).
+See []({torch.exp}).
 
 ### [[torch.Tensor.sqrt]]
 
@@ -467,7 +467,7 @@ See [](<(torch.exp)>).
 Tensor.sqrt() -> Tensor
 ```
 
-See [](<(torch.sqrt)>).
+See []({torch.sqrt}).
 
 ### [[torch.Tensor.square]]
 
@@ -475,7 +475,7 @@ See [](<(torch.sqrt)>).
 Tensor.square() -> Tensor
 ```
 
-See [](<(torch.square)>).
+See []({torch.square}).
 
 ### [[torch.Tensor.sin]]
 
@@ -483,7 +483,7 @@ See [](<(torch.square)>).
 Tensor.sin() -> Tensor
 ```
 
-See [](<(torch.sin)>).
+See []({torch.sin}).
 
 ### [[torch.Tensor.cos]]
 
@@ -491,7 +491,7 @@ See [](<(torch.sin)>).
 Tensor.cos() -> Tensor
 ```
 
-See [](<(torch.cos)>).
+See []({torch.cos}).
 
 ### [[torch.Tensor.tan]]
 
@@ -499,7 +499,7 @@ See [](<(torch.cos)>).
 Tensor.tan() -> Tensor
 ```
 
-See [](<(torch.tan)>).
+See []({torch.tan}).
 
 ### [[torch.Tensor.sigmoid]]
 
@@ -507,7 +507,7 @@ See [](<(torch.tan)>).
 Tensor.sigmoid() -> Tensor
 ```
 
-See [](<(torch.sigmoid)>).
+See []({torch.sigmoid}).
 
 ### [[torch.Tensor.relu]]
 
@@ -515,7 +515,7 @@ See [](<(torch.sigmoid)>).
 Tensor.relu() -> Tensor
 ```
 
-See [](<(torch.relu)>).
+See []({torch.relu}).
 
 ### [[torch.Tensor.sign]]
 
@@ -523,7 +523,7 @@ See [](<(torch.relu)>).
 Tensor.sign() -> Tensor
 ```
 
-See [](<(torch.sign)>).
+See []({torch.sign}).
 
 ### [[torch.Tensor.reciprocal]]
 
@@ -531,7 +531,7 @@ See [](<(torch.sign)>).
 Tensor.reciprocal() -> Tensor
 ```
 
-See [](<(torch.reciprocal)>).
+See []({torch.reciprocal}).
 
 ### [[torch.Tensor.nan_to_num]]
 
@@ -539,7 +539,7 @@ See [](<(torch.reciprocal)>).
 Tensor.nan_to_num() -> Tensor
 ```
 
-See [](<(torch.nan_to_num)>).
+See []({torch.nan_to_num}).
 
 ### [[torch.Tensor.lt]]
 
@@ -547,7 +547,7 @@ See [](<(torch.nan_to_num)>).
 Tensor.lt(other) -> Tensor
 ```
 
-See [](<(torch.lt)>).
+See []({torch.lt}).
 
 ### [[torch.Tensor.gt]]
 
@@ -555,7 +555,7 @@ See [](<(torch.lt)>).
 Tensor.gt(other) -> Tensor
 ```
 
-See [](<(torch.gt)>).
+See []({torch.gt}).
 
 ### [[torch.Tensor.le]]
 
@@ -563,7 +563,7 @@ See [](<(torch.gt)>).
 Tensor.le(other) -> Tensor
 ```
 
-See [](<(torch.le)>).
+See []({torch.le}).
 
 ### [[torch.Tensor.ge]]
 
@@ -571,7 +571,7 @@ See [](<(torch.le)>).
 Tensor.ge(other) -> Tensor
 ```
 
-See [](<(torch.ge)>).
+See []({torch.ge}).
 
 ### [[torch.Tensor.eq]]
 
@@ -579,7 +579,7 @@ See [](<(torch.ge)>).
 Tensor.eq(other) -> Tensor
 ```
 
-See [](<(torch.eq)>).
+See []({torch.eq}).
 
 ### [[torch.Tensor.ne]]
 
@@ -587,7 +587,7 @@ See [](<(torch.eq)>).
 Tensor.ne(other) -> Tensor
 ```
 
-See [](<(torch.ne)>).
+See []({torch.ne}).
 
 ### [[torch.Tensor.allclose]]
 
@@ -595,4 +595,4 @@ See [](<(torch.ne)>).
 Tensor.allclose(other, rtol=1e-5, atol=1e-8, equal_nan=False) -> bool
 ```
 
-See [](<(torch.allclose)>).
+See []({torch.allclose}).
