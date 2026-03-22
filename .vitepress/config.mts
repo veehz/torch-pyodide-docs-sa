@@ -29,7 +29,6 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: "/logo.svg",
     siteTitle: "torch",
 
     outline: {
