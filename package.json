@@ -3,7 +3,7 @@
   "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "@veehz/torch": "https://pkg.pr.new/veehz/torch@0d1ea2d",
+    "@veehz/torch": "https://pkg.pr.new/veehz/torch@6007969",
     "glob": "^11.0.0",
     "markdown-it-mathjax3": "^4",
     "pyodide": "^0.26.0",
