@@ -8,16 +8,17 @@ on:
 
 jobs:
   link-checker:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: >
+      github.event_name == 'workflow_dispatch' || 
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
           ref: gh-pages
-
-      - run: ln -s . ${{ github.event.repository.name }}
+          path: ${{ github.event.repository.name }}
 
       - uses: lycheeverse/lychee-action@v2
         with:
-          args: --root-dir . --verbose --no-progress './**/*.html'
+          args: --root-dir . --verbose --no-progress './${{ github.event.repository.name }}/**/*.html'
           fail: true
