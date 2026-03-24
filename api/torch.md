@@ -399,7 +399,7 @@ x = torch.tensor([0., 3.14])
 torch.tan(x)
 ```
 
-### torch.sigmoid
+### [[torch.sigmoid:torch.nn.functional.sigmoid]]
 
 ```python
 torch.sigmoid(input) -> Tensor
@@ -412,7 +412,7 @@ x = torch.tensor([0., 1.])
 torch.sigmoid(x)
 ```
 
-### torch.relu
+### [[torch.relu:torch.nn.functional.relu]]
 
 ```python
 torch.relu(input) -> Tensor

@@ -32,6 +32,33 @@ class MyModel(nn.Module):
 
 A kind of Tensor that is to be considered a module parameter. Also accessible as `torch.nn.Parameter`.
 
+```python
+nn.Parameter(data, requires_grad=True)
+```
+
+**Parameters**
+
+| Name            | Type     | Description                                                 |
+| --------------- | -------- | ----------------------------------------------------------- |
+| `data`          | `Tensor` | The tensor data to wrap as a parameter.                     |
+| `requires_grad` | `bool`   | Whether the parameter requires a gradient. Default: `True`. |
+
+**Notes**
+
+- Parameters always default to `requires_grad=True`. Unlike plain tensors, you do not need to pass `requires_grad=True` explicitly.
+- `torch.no_grad()` does **not** affect Parameter creation. A Parameter constructed inside a `no_grad` block still has `requires_grad=True`.
+
+**Example**
+
+```python
+w = nn.Parameter(torch.randn(3, 4))
+print(w.requires_grad)
+
+with torch.no_grad():
+    p = nn.Parameter(torch.randn(3, 4))
+    print(p.requires_grad)
+```
+
 ---
 
 ### [[torch.nn.Sequential]]
