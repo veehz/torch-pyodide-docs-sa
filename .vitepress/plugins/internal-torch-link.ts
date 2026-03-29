@@ -14,7 +14,7 @@ export const internalTorchLinkPlugin = (md: MarkdownIt) => {
       const regex = /\[([^\]]*)\]\(\{([\w\.\-\/]+)\}\)/g;
       
       token.content = token.content.replace(regex, (match, alias, target) => {
-        const anchor = target.toLowerCase().replace(/\./g, '-');
+        const anchor = target.toLowerCase().replace(/\._/g, '-');
         let page = '';
         
         // Routing logic
