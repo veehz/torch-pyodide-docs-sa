@@ -42,7 +42,7 @@ export default defineConfig({
         text: "Source",
         items: [
           { text: "source-academy/torch", link: "https://github.com/source-academy/torch" },
-          { text: "Documentation", link: "https://github.com/veehz/torch-pyodide-docs"},
+          { text: "Documentation", link: "https://github.com/source-academy/torch-pyodide-docs"},
           { text: "Source Academy", link: "https://sourceacademy.org" },
         ],
       },
