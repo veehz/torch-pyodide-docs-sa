@@ -2,6 +2,7 @@
   "name": "torch-pyodide-docs",
   "packageManager": "yarn@4.9.2",
   "devDependencies": {
+    "@mdit-vue/shared": "^3.0.2",
     "@types/node": "^25.5.0",
     "glob": "^11.0.0",
     "markdown-it-mathjax3": "^4",

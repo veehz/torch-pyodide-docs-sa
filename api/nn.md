@@ -20,11 +20,11 @@ class MyModel(nn.Module):
 
 **Key Methods**
 
-| Method                                                       | Description                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------- |
-| [`forward(x)`]({torch.nn.Module.forward})                    | Define the computation. Called by `model(x)`.                 |
-| [`parameters()`]({torch.nn.Module.parameters})               | Returns a list of all learnable parameters.                   |
-| [`named_parameters(prefix='')`]({torch.nn.Module.named_parameters}) | Returns a list of `(name, parameter)` tuples.         |
+| Method                        | Description                                   |
+| ----------------------------- | --------------------------------------------- |
+| `forward(x)`                  | Define the computation. Called by `model(x)`. |
+| `parameters()`                | Returns a list of all learnable parameters.   |
+| `named_parameters(prefix='')` | Returns a list of `(name, parameter)` tuples. |
 
 ---
 
@@ -75,11 +75,11 @@ model = nn.Sequential(
 
 **Methods**
 
-| Method                             | Description                                              |
-| ---------------------------------- | -------------------------------------------------------- |
-| `append(module)`                   | Appends a module to the end of the container.            |
-| `insert(index, module)`            | Inserts a module at the given index.                     |
-| `extend(sequential)`               | Appends all modules from another `Sequential`.           |
+| Method                  | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| `append(module)`        | Appends a module to the end of the container.  |
+| `insert(index, module)` | Inserts a module at the given index.           |
+| `extend(sequential)`    | Appends all modules from another `Sequential`. |
 
 ---
 
@@ -199,9 +199,9 @@ Mean Squared Error loss: `loss = mean((pred - target)^2)`.
 
 **Parameters**
 
-| Name        | Type  | Default    | Description                                                      |
-| ----------- | ----- | ---------- | ---------------------------------------------------------------- |
-| `reduction` | `str` | `'mean'`   | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`.         |
+| Name        | Type  | Default  | Description                                              |
+| ----------- | ----- | -------- | -------------------------------------------------------- |
+| `reduction` | `str` | `'mean'` | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`. |
 
 **Example**
 
@@ -224,9 +224,9 @@ Creates a criterion that measures the mean absolute error (MAE) between each ele
 
 **Parameters**
 
-| Name        | Type  | Default    | Description                                                      |
-| ----------- | ----- | ---------- | ---------------------------------------------------------------- |
-| `reduction` | `str` | `'mean'`   | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`.         |
+| Name        | Type  | Default  | Description                                              |
+| ----------- | ----- | -------- | -------------------------------------------------------- |
+| `reduction` | `str` | `'mean'` | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`. |
 
 ---
 
@@ -240,10 +240,10 @@ Creates a criterion that measures the Binary Cross Entropy between the target an
 
 **Parameters**
 
-| Name        | Type             | Default    | Description                                                       |
-| ----------- | ---------------- | ---------- | ----------------------------------------------------------------- |
-| `weight`    | `Tensor` or None | `None`     | A manual rescaling weight for each batch element.                 |
-| `reduction` | `str`            | `'mean'`   | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`.          |
+| Name        | Type             | Default  | Description                                              |
+| ----------- | ---------------- | -------- | -------------------------------------------------------- |
+| `weight`    | `Tensor` or None | `None`   | A manual rescaling weight for each batch element.        |
+| `reduction` | `str`            | `'mean'` | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`. |
 
 ---
 
@@ -257,9 +257,9 @@ This criterion computes the cross entropy loss between input logits and target c
 
 **Parameters**
 
-| Name        | Type  | Default    | Description                                                      |
-| ----------- | ----- | ---------- | ---------------------------------------------------------------- |
-| `reduction` | `str` | `'mean'`   | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`.         |
+| Name        | Type  | Default  | Description                                              |
+| ----------- | ----- | -------- | -------------------------------------------------------- |
+| `reduction` | `str` | `'mean'` | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`. |
 
 **Input:** `(N, C)` where `N` is the batch size and `C` is the number of classes. Values are unnormalized logits.
 
@@ -342,11 +342,11 @@ Computes the cross entropy loss between input logits and target class indices.
 
 **Parameters**
 
-| Name        | Type     | Description                                                      |
-| ----------- | -------- | ---------------------------------------------------------------- |
-| `input`     | `Tensor` | Unnormalized logits of shape `(N, C)`.                           |
-| `target`    | `Tensor` | Target class indices of shape `(N,)`, each in `[0, C)`.          |
-| `reduction` | `str`    | `'mean'` (default), `'sum'`, or `'none'`.                        |
+| Name        | Type     | Description                                             |
+| ----------- | -------- | ------------------------------------------------------- |
+| `input`     | `Tensor` | Unnormalized logits of shape `(N, C)`.                  |
+| `target`    | `Tensor` | Target class indices of shape `(N,)`, each in `[0, C)`. |
+| `reduction` | `str`    | `'mean'` (default), `'sum'`, or `'none'`.               |
 
 ### [[torch.nn.functional.conv1d]]
 
@@ -358,15 +358,15 @@ Applies a 1D convolution over an input signal composed of several input planes.
 
 **Parameters**
 
-| Name       | Type              | Description                                            |
-| ---------- | ----------------- | ------------------------------------------------------ |
-| `input`    | `Tensor`          | Input of shape `(N, C_in, L)`.                         |
-| `weight`   | `Tensor`          | Filters of shape `(C_out, C_in/groups, kW)`.           |
-| `bias`     | `Tensor` or None  | Optional bias of shape `(C_out,)`.                     |
-| `stride`   | `int` or `list`   | Stride of the convolution. Default: `1`.               |
-| `padding`  | `int` or `list`   | Zero-padding on both sides. Default: `0`.              |
-| `dilation` | `int` or `list`   | Spacing between kernel elements. Default: `1`.         |
-| `groups`   | `int`             | Number of blocked connections. Default: `1`.           |
+| Name       | Type             | Description                                    |
+| ---------- | ---------------- | ---------------------------------------------- |
+| `input`    | `Tensor`         | Input of shape `(N, C_in, L)`.                 |
+| `weight`   | `Tensor`         | Filters of shape `(C_out, C_in/groups, kW)`.   |
+| `bias`     | `Tensor` or None | Optional bias of shape `(C_out,)`.             |
+| `stride`   | `int` or `list`  | Stride of the convolution. Default: `1`.       |
+| `padding`  | `int` or `list`  | Zero-padding on both sides. Default: `0`.      |
+| `dilation` | `int` or `list`  | Spacing between kernel elements. Default: `1`. |
+| `groups`   | `int`            | Number of blocked connections. Default: `1`.   |
 
 ### [[torch.nn.functional.conv2d]]
 
@@ -378,15 +378,15 @@ Applies a 2D convolution over an input signal composed of several input planes.
 
 **Parameters**
 
-| Name       | Type              | Description                                            |
-| ---------- | ----------------- | ------------------------------------------------------ |
-| `input`    | `Tensor`          | Input of shape `(N, C_in, H, W)`.                      |
-| `weight`   | `Tensor`          | Filters of shape `(C_out, C_in/groups, kH, kW)`.       |
-| `bias`     | `Tensor` or None  | Optional bias of shape `(C_out,)`.                     |
-| `stride`   | `int` or `list`   | Stride of the convolution. Default: `1`.               |
-| `padding`  | `int` or `list`   | Zero-padding on both sides. Default: `0`.              |
-| `dilation` | `int` or `list`   | Spacing between kernel elements. Default: `1`.         |
-| `groups`   | `int`             | Number of blocked connections. Default: `1`.           |
+| Name       | Type             | Description                                      |
+| ---------- | ---------------- | ------------------------------------------------ |
+| `input`    | `Tensor`         | Input of shape `(N, C_in, H, W)`.                |
+| `weight`   | `Tensor`         | Filters of shape `(C_out, C_in/groups, kH, kW)`. |
+| `bias`     | `Tensor` or None | Optional bias of shape `(C_out,)`.               |
+| `stride`   | `int` or `list`  | Stride of the convolution. Default: `1`.         |
+| `padding`  | `int` or `list`  | Zero-padding on both sides. Default: `0`.        |
+| `dilation` | `int` or `list`  | Spacing between kernel elements. Default: `1`.   |
+| `groups`   | `int`            | Number of blocked connections. Default: `1`.     |
 
 ### [[torch.nn.functional.conv3d]]
 
@@ -398,12 +398,12 @@ Applies a 3D convolution over an input signal composed of several input planes.
 
 **Parameters**
 
-| Name       | Type              | Description                                              |
-| ---------- | ----------------- | -------------------------------------------------------- |
-| `input`    | `Tensor`          | Input of shape `(N, C_in, D, H, W)`.                    |
-| `weight`   | `Tensor`          | Filters of shape `(C_out, C_in/groups, kD, kH, kW)`.    |
-| `bias`     | `Tensor` or None  | Optional bias of shape `(C_out,)`.                       |
-| `stride`   | `int` or `list`   | Stride of the convolution. Default: `1`.                 |
-| `padding`  | `int` or `list`   | Zero-padding on both sides. Default: `0`.                |
-| `dilation` | `int` or `list`   | Spacing between kernel elements. Default: `1`.           |
-| `groups`   | `int`             | Number of blocked connections. Default: `1`.             |
+| Name       | Type             | Description                                          |
+| ---------- | ---------------- | ---------------------------------------------------- |
+| `input`    | `Tensor`         | Input of shape `(N, C_in, D, H, W)`.                 |
+| `weight`   | `Tensor`         | Filters of shape `(C_out, C_in/groups, kD, kH, kW)`. |
+| `bias`     | `Tensor` or None | Optional bias of shape `(C_out,)`.                   |
+| `stride`   | `int` or `list`  | Stride of the convolution. Default: `1`.             |
+| `padding`  | `int` or `list`  | Zero-padding on both sides. Default: `0`.            |
+| `dilation` | `int` or `list`  | Spacing between kernel elements. Default: `1`.       |
+| `groups`   | `int`            | Number of blocked connections. Default: `1`.         |

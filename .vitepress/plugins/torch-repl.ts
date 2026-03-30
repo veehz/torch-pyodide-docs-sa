@@ -13,12 +13,7 @@
 import type MarkdownIt from "markdown-it";
 import type { Plugin } from "vite";
 import { createHash } from "crypto";
-import {
-  readFileSync,
-  existsSync,
-  writeFileSync,
-  mkdirSync,
-} from "fs";
+import { readFileSync, existsSync, writeFileSync, mkdirSync } from "fs";
 import { join, resolve } from "path";
 import { execSync } from "child_process";
 

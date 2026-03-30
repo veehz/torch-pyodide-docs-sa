@@ -1,4 +1,7 @@
 .vitepress/repl-cache.json
+/.envrc
+/.direnv
+/shell.nix
 
 # Logs
 logs

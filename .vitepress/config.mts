@@ -3,17 +3,26 @@ import {
   torchReplMarkdownPlugin,
   torchReplVitePlugin,
 } from "./plugins/torch-repl";
-import { pytorchLinkPlugin } from './plugins/pytorch-link'
-import { internalTorchLinkPlugin } from './plugins/internal-torch-link'
-import mathjax3 from 'markdown-it-mathjax3';
+import { pytorchLinkPlugin } from "./plugins/pytorch-link";
+import { internalTorchLinkPlugin } from "./plugins/internal-torch-link";
+import mathjax3 from "markdown-it-mathjax3";
+import { slugify } from "@mdit-vue/shared";
 
 export default defineConfig({
   title: "torch",
   description:
     "PyTorch-like machine learning library for Source Academy (Pyodide)",
-  base: process.env.VITEPRESS_BASE ?? "/torch-pyodide-docs/",
+  base: process.env.VITEPRESS_BASE ?? "/",
 
-  head: [["link", { rel: "icon", href: `${process.env.VITEPRESS_BASE ?? "/torch-pyodide-docs/"}favicon.ico` }]],
+  head: [
+    [
+      "link",
+      {
+        rel: "icon",
+        href: `${process.env.VITEPRESS_BASE ?? "/"}favicon.ico`,
+      },
+    ],
+  ],
 
   markdown: {
     config(md) {
@@ -21,6 +30,11 @@ export default defineConfig({
       md.use(pytorchLinkPlugin);
       md.use(internalTorchLinkPlugin);
       md.use(torchReplMarkdownPlugin);
+    },
+    anchor: {
+      slugify(str: string) {
+        return slugify(str);
+      },
     },
   },
 
@@ -41,8 +55,14 @@ export default defineConfig({
       {
         text: "Source",
         items: [
-          { text: "source-academy/torch", link: "https://github.com/source-academy/torch" },
-          { text: "Documentation", link: "https://github.com/source-academy/torch-pyodide-docs"},
+          {
+            text: "source-academy/torch",
+            link: "https://github.com/source-academy/torch",
+          },
+          {
+            text: "Documentation",
+            link: "https://github.com/source-academy/torch-pyodide-docs",
+          },
           { text: "Source Academy", link: "https://sourceacademy.org" },
         ],
       },
