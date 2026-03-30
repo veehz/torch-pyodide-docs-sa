@@ -1,7 +1,12 @@
+<script setup>
+const PYTORCH_VERSION = "2.11";
+defineProps(["name"]);
+</script>
+
 <template>
-  <a 
-    :href="`https://docs.pytorch.org/docs/2.11/generated/${name}.html`" 
-    target="_blank" 
+  <a
+    :href="`https://docs.pytorch.org/docs/${PYTORCH_VERSION}/generated/${name}.html`"
+    target="_blank"
     class="ghost-button ignore-header"
   >
     <span class="provider">PyTorch</span>
@@ -38,7 +43,3 @@
   opacity: 0.6;
 }
 </style>
-
-<script setup>
-defineProps(['name'])
-</script>
