@@ -9,21 +9,29 @@ on:
 jobs:
   link-checker:
     if: >
-      github.event_name == 'workflow_dispatch' || 
+      github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Download artifact
+        uses: actions/download-artifact@v4
         with:
-          ref: gh-pages
-          path: ${{ github.event.repository.name }}
+          name: github-pages
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./dist-docs
+
+      - name: Extract artifact
+        run: |
+          mkdir -p ./${{ github.event.repository.name }}
+          tar -xf ./dist-docs/artifact.tar -C ./${{ github.event.repository.name }}
 
       - uses: lycheeverse/lychee-action@v2
         with:
           args: >
-            --root-dir . 
-            --verbose 
-            --no-progress 
-            --include-fragments 
-            './**/*.html'
+            --root-dir .
+            --verbose
+            --no-progress
+            --include-fragments
+            './${{ github.event.repository.name }}/**/*.html'
           fail: true
