@@ -242,7 +242,7 @@ model.eval()   # disable dropout for inference
 
 ---
 
-### [[torch.nn.Flatten]]
+### [[torch.nn.Flatten:torch.nn.modules.flatten.Flatten]]
 
 ```python
 nn.Flatten(start_dim=1, end_dim=-1)
