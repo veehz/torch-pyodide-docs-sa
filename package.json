@@ -7,7 +7,7 @@
     "glob": "^11.0.0",
     "markdown-it-mathjax3": "^4",
     "pyodide": "^0.26.0",
-    "torch": "https://pkg.pr.new/veehz/torch@598db49",
+    "torch": "https://pkg.pr.new/veehz/torch@a6c2faf",
     "vitepress": "^1.6.4"
   },
   "scripts": {

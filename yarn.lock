@@ -2584,15 +2584,15 @@ __metadata:
     glob: "npm:^11.0.0"
     markdown-it-mathjax3: "npm:^4"
     pyodide: "npm:^0.26.0"
-    torch: "https://pkg.pr.new/veehz/torch@598db49"
+    torch: "https://pkg.pr.new/veehz/torch@a6c2faf"
     vitepress: "npm:^1.6.4"
   languageName: unknown
   linkType: soft
 
-"torch@https://pkg.pr.new/veehz/torch@598db49":
+"torch@https://pkg.pr.new/veehz/torch@a6c2faf":
   version: 0.1.0
-  resolution: "torch@https://pkg.pr.new/veehz/torch@598db49"
-  checksum: 10c0/f30407964674305b3d6119302a23f96b55d3469537ee3ac63924b9e14856a12a3645f4b5d0ef97b0ab8fd751fe21c9f1081fdfde66c1d1bff3d3ff0b7a04ac8e
+  resolution: "torch@https://pkg.pr.new/veehz/torch@a6c2faf"
+  checksum: 10c0/0171a19af932decccf1dea36c1ae842d7b5142043eb52322234c6590bda61cc6144feb2efc6e57e8f02bfe3e60b140c9f89933e0a33d341829aba89e1ebabd28
   languageName: node
   linkType: hard
 

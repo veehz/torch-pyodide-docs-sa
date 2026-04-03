@@ -20,11 +20,13 @@ class MyModel(nn.Module):
 
 **Key Methods**
 
-| Method                        | Description                                   |
-| ----------------------------- | --------------------------------------------- |
-| `forward(x)`                  | Define the computation. Called by `model(x)`. |
-| `parameters()`                | Returns a list of all learnable parameters.   |
-| `named_parameters(prefix='')` | Returns a list of `(name, parameter)` tuples. |
+| Method                        | Description                                                   |
+| ----------------------------- | ------------------------------------------------------------- |
+| `forward(x)`                  | Define the computation. Called by `model(x)`.                 |
+| `parameters()`                | Returns a list of all learnable parameters.                   |
+| `named_parameters(prefix='')` | Returns a list of `(name, parameter)` tuples.                 |
+| `train(mode=True)`            | Sets the module and all submodules to training mode.          |
+| `eval()`                      | Sets the module and all submodules to evaluation mode.        |
 
 ---
 
@@ -187,6 +189,86 @@ Applies a 3D convolution over an input signal composed of several input planes.
 
 ---
 
+### [[torch.nn.MaxPool2d]]
+
+```python
+nn.MaxPool2d(kernel_size, stride=None, padding=0)
+```
+
+Applies 2D max pooling over an input signal. Accepts both 3-D `(C, H, W)` and 4-D `(N, C, H, W)` inputs.
+
+**Parameters**
+
+| Name          | Type            | Description                                                                                  |
+| ------------- | --------------- | -------------------------------------------------------------------------------------------- |
+| `kernel_size` | `int` or `list` | Size of the window to take the max over.                                                     |
+| `stride`      | `int` or `list` | Stride of the window. Defaults to `kernel_size` if not provided.                             |
+| `padding`     | `int` or `list` | Zero-padding added to both spatial sides. Default: `0`.                                      |
+
+**Example**
+
+```python
+pool = nn.MaxPool2d(2)
+x = torch.randn(1, 1, 4, 4)
+out = pool(x)  # shape: (1, 1, 2, 2)
+```
+
+---
+
+### [[torch.nn.Dropout]]
+
+```python
+nn.Dropout(p=0.5)
+```
+
+Randomly zeroes elements of the input tensor with probability `p` during training. During evaluation (after calling `model.eval()`), this layer is a no-op. Uses inverted dropout so that the expected sum is unchanged at train time.
+
+**Parameters**
+
+| Name | Type    | Description                                                   |
+| ---- | ------- | ------------------------------------------------------------- |
+| `p`  | `float` | Probability of an element being zeroed. Default: `0.5`.       |
+
+**Example**
+
+```python
+model = nn.Sequential(
+    nn.Linear(10, 10),
+    nn.Dropout(0.5),
+    nn.Linear(10, 1),
+)
+model.eval()   # disable dropout for inference
+```
+
+---
+
+### [[torch.nn.Flatten]]
+
+```python
+nn.Flatten(start_dim=1, end_dim=-1)
+```
+
+Flattens a contiguous range of dimensions into a single dimension. Commonly used to transition from convolutional layers to fully-connected layers.
+
+**Parameters**
+
+| Name        | Type  | Description                                          |
+| ----------- | ----- | ---------------------------------------------------- |
+| `start_dim` | `int` | First dimension to flatten. Default: `1`.            |
+| `end_dim`   | `int` | Last dimension to flatten (inclusive). Default: `-1`. |
+
+**Example**
+
+```python
+model = nn.Sequential(
+    nn.Conv2d(1, 4, 3),
+    nn.Flatten(),          # (N, 4, H, W) -> (N, 4*H*W)
+    nn.Linear(4 * 6 * 6, 10),
+)
+```
+
+---
+
 ## Loss Functions
 
 ### [[torch.nn.MSELoss]]
@@ -276,6 +358,36 @@ loss = criterion(input, target)
 
 ---
 
+### [[torch.nn.NLLLoss]]
+
+```python
+nn.NLLLoss(reduction='mean')
+```
+
+Negative log-likelihood loss. The input is expected to contain **log-probabilities** for each class (typically the output of `torch.nn.functional.log_softmax`). The target is a tensor of class indices.
+
+$$\text{loss}(x, c) = -x[c]$$
+
+**Parameters**
+
+| Name        | Type  | Default  | Description                                              |
+| ----------- | ----- | -------- | -------------------------------------------------------- |
+| `reduction` | `str` | `'mean'` | Specifies the reduction: `'mean'`, `'sum'`, or `'none'`. |
+
+**Input:** `(N, C)` log-probabilities (e.g., output of `F.log_softmax`).
+
+**Target:** `(N,)` class indices, each in `[0, C)`.
+
+**Example**
+
+```python
+log_probs = torch.nn.functional.log_softmax(torch.randn(3, 5), dim=1)
+target = torch.tensor([1, 0, 4])
+loss = nn.NLLLoss()(log_probs, target)
+```
+
+---
+
 ## Activation Functions
 
 ### [[torch.nn.ReLU]]
@@ -295,6 +407,47 @@ nn.Sigmoid()
 ```
 
 Applies the sigmoid function: `f(x) = 1 / (1 + e^(-x))`.
+
+---
+
+### [[torch.nn.LeakyReLU]]
+
+```python
+nn.LeakyReLU(negative_slope=0.01)
+```
+
+Applies leaky ReLU element-wise: `f(x) = x` if `x > 0`, else `f(x) = negative_slope * x`.
+
+**Parameters**
+
+| Name             | Type    | Description                                          |
+| ---------------- | ------- | ---------------------------------------------------- |
+| `negative_slope` | `float` | Controls the angle of the negative slope. Default: `0.01`. |
+
+---
+
+### [[torch.nn.Softmax]]
+
+```python
+nn.Softmax(dim)
+```
+
+Applies the softmax function along `dim`. Equivalent to wrapping `torch.softmax` as a module. Useful as the final layer of a classifier.
+
+**Parameters**
+
+| Name  | Type  | Description                               |
+| ----- | ----- | ----------------------------------------- |
+| `dim` | `int` | Dimension along which softmax is applied. |
+
+**Example**
+
+```python
+model = nn.Sequential(
+    nn.Linear(4, 3),
+    nn.Softmax(dim=1),
+)
+```
 
 ---
 
@@ -346,6 +499,54 @@ Computes the cross entropy loss between input logits and target class indices.
 | ----------- | -------- | ------------------------------------------------------- |
 | `input`     | `Tensor` | Unnormalized logits of shape `(N, C)`.                  |
 | `target`    | `Tensor` | Target class indices of shape `(N,)`, each in `[0, C)`. |
+| `reduction` | `str`    | `'mean'` (default), `'sum'`, or `'none'`.               |
+
+### [[torch.nn.functional.leaky_relu]]
+
+```python
+torch.nn.functional.leaky_relu(input, negative_slope=0.01) -> Tensor
+```
+
+Applies leaky ReLU element-wise.
+
+**Parameters**
+
+| Name             | Type     | Description                                    |
+| ---------------- | -------- | ---------------------------------------------- |
+| `input`          | `Tensor` | Input tensor.                                  |
+| `negative_slope` | `float`  | Slope for negative values. Default: `0.01`.    |
+
+### [[torch.nn.functional.max_pool2d]]
+
+```python
+torch.nn.functional.max_pool2d(input, kernel_size, stride=None, padding=0) -> Tensor
+```
+
+Applies 2D max pooling. Accepts 3-D `(C, H, W)` and 4-D `(N, C, H, W)` inputs.
+
+**Parameters**
+
+| Name          | Type            | Description                                                      |
+| ------------- | --------------- | ---------------------------------------------------------------- |
+| `input`       | `Tensor`        | Input tensor.                                                    |
+| `kernel_size` | `int` or `list` | Size of the pooling window.                                      |
+| `stride`      | `int` or `list` | Stride of the window. Defaults to `kernel_size` if not provided. |
+| `padding`     | `int` or `list` | Zero-padding on both spatial sides. Default: `0`.                |
+
+### [[torch.nn.functional.nll_loss]]
+
+```python
+torch.nn.functional.nll_loss(input, target, reduction='mean') -> Tensor
+```
+
+Negative log-likelihood loss. The input should be log-probabilities.
+
+**Parameters**
+
+| Name        | Type     | Description                                             |
+| ----------- | -------- | ------------------------------------------------------- |
+| `input`     | `Tensor` | Log-probabilities of shape `(N, C)`.                    |
+| `target`    | `Tensor` | Class indices of shape `(N,)`, each in `[0, C)`.        |
 | `reduction` | `str`    | `'mean'` (default), `'sum'`, or `'none'`.               |
 
 ### [[torch.nn.functional.conv1d]]

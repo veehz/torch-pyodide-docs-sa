@@ -75,6 +75,32 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 ---
 
+### [[torch.optim.Adagrad]]
+
+```python
+optim.Adagrad(params, lr=0.01, lr_decay=0, weight_decay=0, eps=1e-10)
+```
+
+Adagrad (Adaptive Gradient) optimizer. Accumulates squared gradients per parameter and scales each update by the inverse of the accumulated root. Well-suited for sparse gradients.
+
+**Parameters**
+
+| Name           | Type    | Default  | Description                                                  |
+| -------------- | ------- | -------- | ------------------------------------------------------------ |
+| `params`       | `list`  | —        | List of parameters (from `model.parameters()`).              |
+| `lr`           | `float` | `0.01`   | Initial learning rate.                                       |
+| `lr_decay`     | `float` | `0`      | Learning rate decay applied per step: `clr = lr / (1 + (t-1) * lr_decay)`. |
+| `weight_decay` | `float` | `0`      | Weight decay (L2 penalty).                                   |
+| `eps`          | `float` | `1e-10`  | Numerical stability term added to the denominator.           |
+
+**Example**
+
+```python
+optimizer = optim.Adagrad(model.parameters(), lr=0.01)
+```
+
+---
+
 ## Methods
 
 All optimizers share these methods:

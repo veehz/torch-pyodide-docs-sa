@@ -85,7 +85,7 @@ x.item()
 ### Math Operations
 
 Many math operations are exposed directly as tensor methods:
-[`add(other)`]({torch.Tensor.add}), [`sub(other)`]({torch.Tensor.sub}), [`mul(other)`]({torch.Tensor.mul}), [`div(other)`]({torch.Tensor.div}), [`pow(other)`]({torch.Tensor.pow}), [`fmod(other)`]({torch.Tensor.fmod}), [`matmul(other)`]({torch.Tensor.matmul}), [`neg()`]({torch.Tensor.neg}), [`abs()`]({torch.Tensor.abs}), [`log()`]({torch.Tensor.log}), [`exp()`]({torch.Tensor.exp}), [`sqrt()`]({torch.Tensor.sqrt}), [`square()`]({torch.Tensor.square}), [`sin()`]({torch.Tensor.sin}), [`cos()`]({torch.Tensor.cos}), [`tan()`]({torch.Tensor.tan}), [`sigmoid()`]({torch.Tensor.sigmoid}), [`relu()`]({torch.Tensor.relu}), [`sign()`]({torch.Tensor.sign}), [`reciprocal()`]({torch.Tensor.reciprocal}), [`nan_to_num()`]({torch.Tensor.nan_to_num}).
+[`add(other)`]({torch.Tensor.add}), [`sub(other)`]({torch.Tensor.sub}), [`mul(other)`]({torch.Tensor.mul}), [`div(other)`]({torch.Tensor.div}), [`pow(other)`]({torch.Tensor.pow}), [`fmod(other)`]({torch.Tensor.fmod}), [`matmul(other)`]({torch.Tensor.matmul}), [`neg()`]({torch.Tensor.neg}), [`abs()`]({torch.Tensor.abs}), [`log()`]({torch.Tensor.log}), [`exp()`]({torch.Tensor.exp}), [`sqrt()`]({torch.Tensor.sqrt}), [`square()`]({torch.Tensor.square}), [`sin()`]({torch.Tensor.sin}), [`cos()`]({torch.Tensor.cos}), [`tan()`]({torch.Tensor.tan}), [`sigmoid()`]({torch.Tensor.sigmoid}), [`relu()`]({torch.Tensor.relu}), [`softmax(dim)`]({torch.Tensor.softmax}), [`clamp(min, max)`]({torch.Tensor.clamp}), [`sign()`]({torch.Tensor.sign}), [`reciprocal()`]({torch.Tensor.reciprocal}), [`nan_to_num()`]({torch.Tensor.nan_to_num}).
 
 Additionally, the Python `__add__`, `__sub__`, `__mul__`, `__truediv__`, `__pow__`, and `__matmul__` magic methods are implemented to match standard math operators (+, -, \*, /, \*\*, @).
 
@@ -513,6 +513,22 @@ Tensor.relu() -> Tensor
 ```
 
 See []({torch.relu}).
+
+### [[torch.Tensor.softmax]]
+
+```python
+Tensor.softmax(dim) -> Tensor
+```
+
+See []({torch.softmax}).
+
+### [[torch.Tensor.clamp]]
+
+```python
+Tensor.clamp(min, max) -> Tensor
+```
+
+See []({torch.clamp}).
 
 ### [[torch.Tensor.sign]]
 

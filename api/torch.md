@@ -87,6 +87,8 @@ y.requires_grad
 | [`min`]({torch.min})                   | Returns the minimum value of all elements in the `input` tensor.               |
 | [`maximum`]({torch.maximum})           | Computes the element-wise maximum of `input` and `other`.                      |
 | [`minimum`]({torch.minimum})           | Computes the element-wise minimum of `input` and `other`.                      |
+| [`softmax`]({torch.softmax})           | Applies the softmax function along a given dimension.                          |
+| [`clamp`]({torch.clamp})               | Clamps all elements in `input` into the range `[min, max]`.                    |
 
 ### Comparison operations
 
@@ -439,6 +441,47 @@ Applies the rectified linear unit function element-wise: `max(0, x)`.
 ```python repl
 x = torch.tensor([-1., 0., 1.])
 torch.relu(x)
+```
+
+### [[torch.softmax]]
+
+```python
+torch.softmax(input, dim) -> Tensor
+```
+
+Applies the softmax function along dimension `dim`. Each slice along `dim` sums to 1. Uses the numerically stable formulation (subtracts the max before exponentiating).
+
+**Parameters**
+
+| Name    | Type     | Description                              |
+| ------- | -------- | ---------------------------------------- |
+| `input` | `Tensor` | Input tensor.                            |
+| `dim`   | `int`    | Dimension along which softmax is applied. |
+
+```python repl
+x = torch.tensor([1., 2., 3.])
+torch.softmax(x, dim=0)
+```
+
+### [[torch.clamp]]
+
+```python
+torch.clamp(input, min, max) -> Tensor
+```
+
+Clamps all elements in `input` into the range `[min, max]`. `torch.clip` is an alias.
+
+**Parameters**
+
+| Name    | Type     | Description         |
+| ------- | -------- | ------------------- |
+| `input` | `Tensor` | Input tensor.       |
+| `min`   | `float`  | Lower bound.        |
+| `max`   | `float`  | Upper bound.        |
+
+```python repl
+x = torch.tensor([-2., 0., 2., 5.])
+torch.clamp(x, 0, 3)
 ```
 
 ### [[torch.sign]]
